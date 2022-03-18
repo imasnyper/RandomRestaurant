@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'orders/style.css' %}">
+    {% block extra %}{% endblock %}
+    <link rel="shortcut icon" href="{% static 'orders/favicon.ico' %}">
+</head>
+<body>
+    {% block nav %}
+    <nav class="menu">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+                <li class="food-menu"><a href="{% url 'menu' %}">Menu</a></li>
+                <li class="logout"><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li class="login"><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endblock %}
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'orders/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h3 id="orderStatus">Order for {{ order.dish_name }} placed {{ order.datetime_ordered }}!</h3>
+
+    <h4>Order Details:</h4>
+    <p>{{ description }}</p>
+
+    <a href="{% url 'menu' %}">Menu</a>
+
+    <input type="hidden" id="DRF_TOKEN" value="{{ drf_token }}">
+    <input type="hidden" id="ORDER_PK" value="{{ order.pk }}">
+    <footer>
+        <script src={% static "orders/script.js" %}></script>
+    </footer>
+{% endblock %}

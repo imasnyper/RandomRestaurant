@@ -1,0 +1,57 @@
+.login-container, .register-container {
+    background-color: rgba(0,0,0,.8);
+    width: 35%;
+    margin: 0 auto;
+    padding: 3%;
+    text-align: center;
+}
+
+.login, .register-title {
+    color: lightgray;
+    margin-top: 0;
+    font-family: "Oswald", sans-serif;
+}
+
+label, .register, .home-link {
+    color: lightgray;
+    font-family: "Oswald", sans-serif;
+}
+
+form a {
+    text-decoration: none;
+    color: lightgray;
+    font-weight: bold;
+}
+
+.register {
+    padding-left: 1em;
+}
+
+.helptext {
+    margin: 10px 0;
+    color: #575757;
+    font-family: "Oswald", sans-serif;
+    display: inline-block;
+}
+
+.helptext ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.button, input[type="submit"] {
+    background-color: rgb(42, 11, 11);
+    padding: 10px;
+    color: rgb(122, 34, 34);
+    border: 1px solid rgb(122, 34, 34);
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: rgb(231, 67, 67);
+}
+
+.login {
+    text-decoration: none;
+}
