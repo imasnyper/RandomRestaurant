@@ -27,4 +27,4 @@ This is a simple Django app that makes a request to the random-data-api.com API,
     - Add `DRF_TOKEN=<generated-token>` to the .env file
 
 ## Running Instructions:
-1. python manage.py runserver
+1. `python manage.py runserver`
