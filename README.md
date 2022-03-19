@@ -18,7 +18,7 @@ This is a simple Django app that makes a request to the random-data-api.com API,
 6. Add .env file to RandomRestaurant/RandomRestaurant folder(same folder as settings.py)
 6. Add `UNSPLASH_TOKEN=<token>`
 7. Add `DRF_TOKEN=` to .env file as a placeholder for the settings file
-8. Run `python manage.py makemigrations`
+8. Run `python manage.py makemigrations users orders`
 9. Run `python manage.py migrate`
 10. Create API superuser for Django Rest Framework frontend authentication
     - `python manage.py createsuperuser --username api --email <any email>`
