@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'orders/style.css' %}">
-    {% block extra %}{% endblock %}
+    {% block extrahead %}{% endblock %}
     <link rel="shortcut icon" href="{% static 'orders/favicon.ico' %}">
 </head>
 <body>
@@ -27,4 +27,7 @@
     {% endblock %}
     {% block content %}{% endblock %}
 </body>
+<footer>
+    {% block extrafoot %}{% endblock %}
+</footer>
 </html>

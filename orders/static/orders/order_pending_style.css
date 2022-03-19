@@ -1,0 +1,15 @@
+.order-container {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 20px;
+    background-color: rgba(0,0,0,.5);
+    color: darkgray;
+    font-family: 'Oswald', sans-serif;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: darkgray;
+    font-size: 22px;
+    font-weight: bold;
+}

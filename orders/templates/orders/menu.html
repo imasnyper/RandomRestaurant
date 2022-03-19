@@ -1,27 +1,39 @@
 {% extends 'orders/base.html' %}
 {% load static %}
 
-{% block extra %}
-    <link rel="stylesheet" href="{% static 'orders/menu-style.css' %}">
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'orders/menu_style.css' %}">
 {% endblock %}
 
 {% block content %}
+    <h2 class="instructions">Please Choose Your Order!</h2>
+
     <form action="{% url 'order_pending' %}" method="post">
         {% csrf_token %}
         {% for menu_item in menu %}
-            <div class="menu-item">
-                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ forloop.counter0 }}">
-                <span><img src="{{ menu_item.photo_url }}"/></span>
-                <div>
-                    <h3>{{ menu_item.dish }}</h3>
-                    <p>{{ menu_item.description }}</p>
+            <div id="menu-item{{ forloop.counter0 }}" class="menu-item">
+                <input class="menu-item{{ forloop.counter0 }} menu-item-content" type="radio" name="choice" id="choice{{ forloop.counter0 }}" value="{{ forloop.counter0 }}">
+
+                <div id="item{{ forloop.counter0 }}" class="menu-item{{ forloop.counter0 }} menu-item-content">
+                    <span><img class="menu-item{{ forloop.counter0 }}" src="{{ menu_item.photo_url }}"/></span>
+                    <span>
+                    <div class="menu-item{{ forloop.counter0 }}">
+                        <h3 class="menu-item{{ forloop.counter0 }}">{{ menu_item.dish }}</h3>
+                        <p class="menu-item{{ forloop.counter0 }}">{{ menu_item.description }}</p>
+                    </div>
+                    <input type="text" name="dish" id="dish{{ forloop.counter0 }}" hidden value="{{ menu_item.dish }}">
+                    <input type="text" name="description" id="description{{ forloop.counter0 }}" hidden
+                           value="{{ menu_item.description }}">
+                    <input type="text" name="photo_url" id="photo_url{{ forloop.counter0 }}" hidden value="{{ menu_item.photo_url }}">
+                    </span>
                 </div>
-                <input type="text" name="dish" id="dish{{ forloop.counter0 }}" hidden value="{{ menu_item.dish }}">
-                <input type="text" name="description" id="description{{ forloop.counter0 }}" hidden
-                       value="{{ menu_item.description }}">
             </div>
         {% endfor %}
         <input type="number" name="user_id" id="user_id{{ forloop.counter0 }}" hidden value="{{ user.id }}">
-        <input type="submit" value="Order!">
+        <input class="button submit-button" type="submit" value="Order!">
     </form>
+{% endblock %}
+
+{% block extrafoot %}
+    <script src="{% static 'orders/menu_script.js' %}"></script>
 {% endblock %}

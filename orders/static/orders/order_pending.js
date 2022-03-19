@@ -1,3 +1,13 @@
+let timer = 0;
+
+const updateTimer = () => {
+  timer += 1;
+  let timeLeft = document.getElementById("timeLeft")
+  timeLeft.innerText = "Order Ready in: " + (5 - timer).toString();
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 const fullfillOrder = async () => {
   let hiddenInput = document.getElementById("DRF_TOKEN")
   const drfToken = hiddenInput.value
@@ -21,6 +31,9 @@ const fullfillOrder = async () => {
   const data = await response.json()
 
   updateUI(data)
+  clearInterval(timerInterval)
+  const timeLeft = document.getElementById("timeLeft")
+  timeLeft.innerText = ""
 }
 
 const createDateString = () => {

@@ -1,17 +1,23 @@
 {% extends 'orders/base.html' %}
 {% load static %}
 
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'orders/order_pending_style.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h3 id="orderStatus">Order for {{ order.dish_name }} placed {{ order.datetime_ordered }}!</h3>
+    <div class="order-container">
+        <img src="{{ photo_url }}">
+        <h3 id="orderStatus">Order for {{ order.dish_name }} placed {{ order.datetime_ordered }}!</h3>
+        <span id="timeLeft">&nbsp;</span>
 
-    <h4>Order Details:</h4>
-    <p>{{ description }}</p>
+        <h4>Order Details:</h4>
+        <p>{{ order.description }}</p>
 
-    <a href="{% url 'menu' %}">Menu</a>
-
-    <input type="hidden" id="DRF_TOKEN" value="{{ drf_token }}">
-    <input type="hidden" id="ORDER_PK" value="{{ order.pk }}">
-    <footer>
-        <script src={% static "orders/script.js" %}></script>
-    </footer>
+        <input type="hidden" id="DRF_TOKEN" value="{{ drf_token }}">
+        <input type="hidden" id="ORDER_PK" value="{{ order.pk }}">
+        <footer>
+            <script src={% static "orders/order_pending.js" %}></script>
+        </footer>
+    </div>
 {% endblock %}

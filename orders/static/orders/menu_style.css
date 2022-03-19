@@ -1,0 +1,44 @@
+nav {
+    padding-top: 10px;
+}
+
+.instructions {
+    padding: 10px 5em;
+    margin: 1em auto;
+    width: 60%;
+    color: darkgray;
+    font-family: 'Oswald', sans-serif;
+}
+
+form {
+    padding: 1em 5em;
+    margin: 1em auto;
+    width: 60%;
+}
+
+.menu-item {
+    background-color: rgba(0,0,0,.5);
+    padding: 1em;
+    margin: 1em 0;
+    color: darkgray;
+    width: 95%;
+    font-family: 'Oswald', sans-serif;
+}
+
+.menu-item-content {
+    display: inline-block;
+    width: 95%;
+}
+
+input[id^='choice'] {
+    display: none;
+}
+
+.submit-button {
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    font-family: "Oswald", sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+}

@@ -22,6 +22,7 @@ def menu(request):
 
 @require_http_methods(["POST"])
 def order_pending(request):
+    # this should be handled with a Django form, wanted to submit sooner
     if request.method == "POST":
         username = None
         user = None
@@ -33,6 +34,7 @@ def order_pending(request):
 
         dish = request.POST.getlist('dish')[choice]
         description = request.POST.getlist('description')[choice]
+        photo_url = request.POST.getlist('photo_url')[choice]
 
         token = settings.DRF_TOKEN
 
@@ -41,6 +43,7 @@ def order_pending(request):
         context = {
             'username': username,
             'order': order,
+            'photo_url': photo_url,
             'drf_token': token
         }
 
